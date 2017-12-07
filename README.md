@@ -1,5 +1,5 @@
 # sub_crawler
-Simple crawler for gathering posts by geolocation
+Simple Python crawler for gathering posts by geolocation. Using vk api.
 ## Input parameters of searching:
 * Start date, end date 'yyyy-mm-dd HH:MM'
 * Timestep in hours
