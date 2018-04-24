@@ -26,6 +26,7 @@ def get_vk(location_latitude, location_longitude, distance, min_timestamp, max_t
     get_request += '&radius=' + distance
     get_request += '&start_time=' + str(min_timestamp)
     get_request += '&end_time=' + str(max_timestamp)
+    get_request += '&v=2'
     local_connect = httplib.HTTPSConnection('api.vk.com', 443)
     local_connect.request('GET', get_request)
     print(get_request)
@@ -72,6 +73,7 @@ def parse_vk(location_latitude, location_longitude, distance, min_timestamp, max
     # print 'TIME: from', timestamptodate(min_timestamp), 'to', timestamptodate(max_timestamp)
 
     report_file = 'vk_' + location_latitude + '_' + location_longitude + '_' + start_search + '_' + end_search + '.html'
+    report_file = report_file.replace(":", " ")
     with open(report_file, 'w') as file_inst:
         file_inst.write('<html>')
         local_min_timestamp = min_timestamp
@@ -113,8 +115,8 @@ if __name__ == '__main__':
     location_longitude = str(lon)
     distance = '100'
 
-    start_search = "2017-10-13 18:00"
-    end_search = "2017-10-14 11:00"
+    start_search = "2018-04-23 18:00"
+    end_search = "2018-04-24 11:00"
 
     min_timestamp = date_to_timestamp(start_search)
     max_timestamp = date_to_timestamp(end_search)
